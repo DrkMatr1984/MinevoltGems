@@ -1,0 +1,16 @@
+messagePrefix: "&8[&bMine&evolt&aGems&8]&r"
+currencyName: "&egems"
+commandName: "gems"
+start-amount: 0
+Storage:
+  StorageMethod: file
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    database: MinevoltGems
+    table: minecraft
+    username: root
+    password: example
+    useSSL: false
+  file:
+    save-interval: 10  

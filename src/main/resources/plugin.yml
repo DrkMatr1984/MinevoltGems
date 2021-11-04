@@ -1,0 +1,5 @@
+name: MinevoltGems
+version: 1.1
+main: me.drkmatr1984.MinevoltGems.MinevoltGems
+author: Drkmatr1984
+softdepend: [PlaceholderAPI, DeluxeChat, MVdWPlaceholderAPI]
