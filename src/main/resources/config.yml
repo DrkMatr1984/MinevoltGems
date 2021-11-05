@@ -1,9 +1,34 @@
+## Language to use for commands and messages.
+## Currently only English is available. Value is the name of the file
+## in languages subfolder without .yml you intend to use.
+## If you develop another language file please send it to me!
+
+language: en
+
+## The message prefix when thre plugin sends messages and also
+## for console messages
+
 messagePrefix: "&8[&bMine&evolt&aGems&8]&r"
-currencyName: "&egems"
-commandName: "gems"
+
+## Whether to automatically register any joining player that isn't
+## already registered in the database with the starting amount.
+## You probably don't want to touch this unless you're using the plugin
+## strictly as an API and want to handle this your own way.
+
+autoRegisterNew: true
+
+## Amount of gems each player starts with (a whole integer number)
+
 start-amount: 0
+
 Storage:
+
+  ## Storage Method. Can be "file" or "mysql"
+  
   StorageMethod: file
+  
+  ## Settings for MySQL if "mysql"
+  
   mysql:
     host: 127.0.0.1
     port: 3306
@@ -12,5 +37,8 @@ Storage:
     username: root
     password: example
     useSSL: false
+    
+  ## Save interval for File based storage, in minutes
+  
   file:
-    save-interval: 10  
+    save-interval: 5  

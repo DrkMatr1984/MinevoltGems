@@ -1,19 +1,25 @@
 package me.drkmatr1984.MinevoltGems;
 
-import org.bukkit.Bukkit;
+import java.io.File;
+
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
 public class GemsConfig {
   private MinevoltGems plugin = null;
   
-  private FileConfiguration config = null;
+  private File fileConfig = null;
+  
+  public String language = "en";
   
   public String pr = "&8[&bMine&evolt&aGems&8]&r";
   
-  public String command = "gems";
+  private File dataFolder;
   
-  public String currencyName = "&egems";
+  private FileConfiguration config;
+  
+  public boolean autoRegisterNew = true;
   
   public int startAmount = 0;
   
@@ -33,21 +39,25 @@ public class GemsConfig {
   
   public boolean useSSL = false;
   
-  public int interval = 10;
+  public int interval = 5;
   
   public GemsConfig(Plugin plugin) {
     this.plugin = (MinevoltGems)plugin;
-    this.config = this.plugin.getConfig();
-    this.plugin.getConfig().options().copyDefaults(true);
-    this.plugin.saveConfig();
+    this.dataFolder = new File(this.plugin.getDataFolder().toString());
+    if (!this.dataFolder.exists())
+        this.dataFolder.mkdir(); 
+      if (this.fileConfig == null)
+        this.fileConfig = new File(this.dataFolder, "config.yml"); 
+      if (!this.fileConfig.exists())
+        this.plugin.saveResource("config.yml", false); 
     loadConfig();
-    Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getColoredMessage(this.pr + " &aConfiguration initialized"));
   }
   
   public void loadConfig() {
+	this.config = YamlConfiguration.loadConfiguration(fileConfig);
+	this.language = this.config.getString("language");
     this.pr = this.config.getString("messagePrefix");
-    this.currencyName = this.config.getString("currencyName");
-    this.command = this.config.getString("commandName");
+    this.autoRegisterNew = Boolean.valueOf(this.config.getString("autoRegisterNew"));
     this.startAmount = this.config.getInt("start-amount");
     this.method = StorageMethod.valueOf(this.config.getString("Storage.StorageMethod"));
     if (this.method.equals(StorageMethod.mysql)) {

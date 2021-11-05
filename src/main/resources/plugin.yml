@@ -1,5 +1,22 @@
 name: MinevoltGems
-version: 1.1
+version: 1.2
 main: me.drkmatr1984.MinevoltGems.MinevoltGems
 author: Drkmatr1984
-softdepend: [PlaceholderAPI, DeluxeChat, MVdWPlaceholderAPI]
+softdepend: [PlaceholderAPI, MVdWPlaceholderAPI]
+description: Trade, buy, and sell Gems! Use gem to sell packages on your server shop!
+permissions:
+    gems.pay:
+        description: Allows the user to pay other players in gems using /<command> pay
+        default: true
+    gems.add:
+        description: Allow to add to player's balance
+        default: op
+    gems.remove:
+        description: Allow to remove from player's balance
+        default: op
+    gems.set:
+        description: Allow to set Balance
+        default: op
+    gems.balance.other:
+        description: See someone elses balance
+        default: op

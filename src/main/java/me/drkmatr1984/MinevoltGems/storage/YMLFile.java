@@ -30,7 +30,7 @@ public class YMLFile {
   public void initLists() {
     saveDefaultUserList();
     loadPlayers();
-    Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getColoredMessage((MinevoltGems.getConfigInstance()).pr + " &aFile storage successfully initialized!"));
+    Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getFormattedMessage(Bukkit.getConsoleSender(), (MinevoltGems.getConfigInstance()).pr + " &aFile storage successfully initialized!"));
   }
   
   public void saveDefaultUserList() {

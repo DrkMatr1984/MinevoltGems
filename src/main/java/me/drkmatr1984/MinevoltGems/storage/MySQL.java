@@ -42,18 +42,18 @@ public class MySQL {
       try {
         String connection = "jdbc:mysql://" + this.host + ":" + this.port + "/" + this.database + "?autoReconnect=true&useSSL=" + this.useSSL.toString().toLowerCase();
         con = DriverManager.getConnection(connection, this.username, this.password);
-        Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getColoredMessage((MinevoltGems.getConfigInstance()).pr + " &ahas successfully connected to MySQL Database!"));
+        Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getFormattedMessage(Bukkit.getConsoleSender(), (MinevoltGems.getConfigInstance()).pr + " &ahas successfully connected to MySQL Database!"));
       } catch (SQLException e) {
-        Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getColoredMessage((MinevoltGems.getConfigInstance()).pr + " &c cannot connect to MySQL Database..."));
+        Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getFormattedMessage(Bukkit.getConsoleSender(), (MinevoltGems.getConfigInstance()).pr + " &c cannot connect to MySQL Database..."));
       }  
   }
   
   public void disconnect() {
     try {
       con.close();
-      Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getColoredMessage((MinevoltGems.getConfigInstance()).pr + " &ahas successfully disconnected from MySQL Database!"));
+      Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getFormattedMessage(Bukkit.getConsoleSender(), (MinevoltGems.getConfigInstance()).pr + " &ahas successfully disconnected from MySQL Database!"));
     } catch (SQLException e) {
-      Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getColoredMessage((MinevoltGems.getConfigInstance()).pr + " &ccould not disconnect from MySQL Database..."));
+      Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getFormattedMessage(Bukkit.getConsoleSender(), (MinevoltGems.getConfigInstance()).pr + " &ccould not disconnect from MySQL Database..."));
     } 
   }
   

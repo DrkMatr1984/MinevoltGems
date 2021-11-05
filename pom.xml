@@ -5,7 +5,7 @@
 
     <groupId>me.drkmatr1984</groupId>
     <artifactId>MinevoltGems</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <name>MinevoltGems</name>
 
     <!-- Properties -->
@@ -29,6 +29,10 @@
 			<id>drkmatr1984</id>
 			<url>https://minevolt.net/repo/</url>
 		</repository>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
     </repositories>
     <!-- Dependencies -->
     <dependencies>
@@ -51,6 +55,11 @@
            <groupId>com.google.code.gson</groupId>
            <artifactId>gson</artifactId>
            <version>2.8.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.haroldstudios</groupId>
+            <artifactId>hexitextlib</artifactId>
+            <version>1.0</version>
         </dependency>
     </dependencies>
 
@@ -80,6 +89,7 @@
                             <artifactSet>
                                 <includes>
                                     <include>com.google.code.gson:gson</include>
+                                    <include>com.haroldstudios:hexitextlib</include>
                                 </includes>
                             </artifactSet>
                         </configuration>
