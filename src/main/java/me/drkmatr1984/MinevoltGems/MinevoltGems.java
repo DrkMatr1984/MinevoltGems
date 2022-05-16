@@ -59,7 +59,7 @@ public class MinevoltGems extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getFormattedMessage(Bukkit.getConsoleSender(), (MinevoltGems.getConfigInstance()).pr + " &bInterval: &e" + MinevoltGems.config.interval));
         break;
       case mysql:
-        this.sql = new MySQL();
+        this.sql = new MySQL(this);
         this.sql.connect();
         GemsAPI.createTable(this.sql);
         Bukkit.getConsoleSender().sendMessage(GemsCommandExecutor.getFormattedMessage(Bukkit.getConsoleSender(), (MinevoltGems.getConfigInstance()).pr + " &aStorageMethod: &eMySQL"));
